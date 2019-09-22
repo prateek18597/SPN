@@ -1,0 +1,74 @@
+package constants;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Pbox {
+    public static final Map<Integer, Integer> Permute = new HashMap<>(){{
+        put(0,0);
+        put(1,16);
+        put(2,32);
+        put(3,48);
+        put(4,1);
+        put(5,17);
+        put(6,33);
+        put(7,49);
+        put(8,2);
+        put(9,18);
+        put(10,34);
+        put(11,50);
+        put(12,3);
+        put(13,19);
+        put(14,35);
+        put(15,51);
+        put(16,4);
+        put(17,20);
+        put(18,36);
+        put(19,52);
+        put(20,5);
+        put(21,21);
+        put(22,37);
+        put(23,53);
+        put(24,6);
+        put(25,22);
+        put(26,38);
+        put(27,54);
+        put(28,7);
+        put(29,23);
+        put(30,39);
+        put(31,55);
+        put(32,8);
+        put(33,24);
+        put(34,40);
+        put(35,56);
+        put(36,9);
+        put(37,25);
+        put(38,41);
+        put(39,57);
+        put(40,10);
+        put(41,26);
+        put(42,42);
+        put(43,58);
+        put(44,11);
+        put(45,27);
+        put(46,43);
+        put(47,59);
+        put(48,12);
+        put(49,28);
+        put(50,44);
+        put(51,60);
+        put(52,13);
+        put(53,29);
+        put(54,45);
+        put(55,61);
+        put(56,14);
+        put(57,30);
+        put(58,46);
+        put(59,62);
+        put(60,15);
+        put(61,31);
+        put(62,47);
+        put(63,63);
+
+    }};
+}
