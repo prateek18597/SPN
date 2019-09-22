@@ -18,4 +18,15 @@ public class KeyMixing {
         return right(b,r,5);
     }
 
+    public static String getKey(String key, int round){
+        //Rounds starts from 0
+        if(round%2==0){
+            //Odd rounds refers to L
+            return left(StringUtil.bitString(key.substring(0,64)),round/2);
+        } else {
+            //Even rounds refer to R
+            return right(StringUtil.bitString(key.substring(64)), round/2);
+        }
+    }
+
 }
