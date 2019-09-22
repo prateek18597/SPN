@@ -1,5 +1,7 @@
 package util;
 
+import config.Config;
+
 public class KeyMixing {
 
     public static String left(String b, int r, int l){
@@ -22,10 +24,10 @@ public class KeyMixing {
         //Rounds starts from 0
         if(round%2==0){
             //Odd rounds refers to L
-            return left(StringUtil.bitString(key.substring(0,64)),round/2);
+            return left(StringUtil.bitString(key).substring(0, Config.blockSize),round/2);
         } else {
             //Even rounds refer to R
-            return right(StringUtil.bitString(key.substring(64)), round/2);
+            return right(StringUtil.bitString(key).substring(Config.blockSize), round/2);
         }
     }
 
