@@ -33,7 +33,6 @@ public class StringUtil {
 
     public static ArrayList<String> divideString(String s, int size){
         ArrayList<String> strArray = new ArrayList<>();
-        s = bitString(s);
         int l = s.length();
         int count = 0;
         while(l%size != 0){
@@ -48,8 +47,26 @@ public class StringUtil {
         for(int i = 0; i < l; i+=64){
             strArray.add(s.substring(i,i+64));
         }
+        if(l%size!=0)
         strArray.add(c);
         return strArray;
     }
 
+    public static ArrayList<String> divideStringDecryption(String s, int size){
+        ArrayList<String> strArray = new ArrayList<>();
+        int l = s.length();
+        for(int i = 0; i < l; i+=64){
+            strArray.add(s.substring(i,i+64));
+        }
+        return strArray;
+    }
+
+    public static String asciiString(String s){
+        String str = "";
+        for(int i = 0; i < s.length(); i+=8){
+            String st = s.substring(i,i+8);
+            str += (char)Integer.parseInt(st, 2);
+        }
+        return str;
+    }
 }

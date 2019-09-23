@@ -27,4 +27,24 @@ public class Round {
         }
         return subString;
     }
+
+    public static String generalRoundBack(String s, String key){
+        String xorString = StringUtil.xor(s, key);
+        String perString = Permutation.permute(xorString);
+        String subString = "";
+        for(int i = 0; i < perString.length(); i+=4){
+            subString += Substitution.substitute(perString.substring(i,i+4));
+        }
+        return subString;
+    }
+
+    public static String lastRoundBack(String s, String key){
+        String xorString = StringUtil.xor(s, key);
+        String subString = "";
+        for(int i = 0; i < xorString.length(); i+=4){
+            subString += Substitution.substitute(xorString.substring(i,i+4));
+        }
+        return subString;
+    }
+
 }
