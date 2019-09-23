@@ -10,8 +10,8 @@ public class SPN {
         System.out.println("Enter your message:");
         String msg = "HelloABC";//scan.next();
         String encryptedMessage = Handler.handleEncryption(msg, key);
-        String decryptedMessage = Handler.handleDecryption(encryptedMessage, key);
         System.out.println("Encrypted Message:\n" + encryptedMessage);
+        String decryptedMessage = Handler.handleDecryption(encryptedMessage, key);
         System.out.println("Decrypted Message:\n" + decryptedMessage);
     }
 }

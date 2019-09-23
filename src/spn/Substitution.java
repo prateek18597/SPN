@@ -13,4 +13,13 @@ public class Substitution {
         }
         return st;
     }
+
+    public static String substituteB(String s){
+        int sInt = Integer.parseInt(s,2);
+        String st = Integer.toBinaryString(Sbox.SubstituteB.get(sInt));
+        while (st.length() < 4){
+            st = '0' + st;
+        }
+        return st;
+    }
 }

@@ -17,11 +17,10 @@ public class Handler {
         System.out.println("Message:\n" + StringUtil.bitString(msg));
         ArrayList<String> stringArrayList = StringUtil.divideString(StringUtil.bitString(msg),
                 Config.blockSize);
-        System.out.println("Size of Array List:" + stringArrayList.size());
         String handledMsg = "";
         for(String s: stringArrayList){
             String st = s;
-            String k;
+            String k = "";
             for( int i = 0; i < Config.rounds - 1; i++){
                 k = KeyMixing.getKey(key,i);
                 st = Round.generalRound(st,k);
@@ -30,19 +29,18 @@ public class Handler {
             st = Round.lastRound(st, k);
             k = KeyMixing.getKey(key,Config.rounds);
             st = StringUtil.xor(st, k);
-            System.out.println(s);
             handledMsg += st;
         }
-        return handledMsg;
+        return StringUtil.asciiString(handledMsg);
     }
 
     public static String handleDecryption(String msg, String key){
-        ArrayList<String> stringArrayList = StringUtil.divideStringDecryption(msg,
+        ArrayList<String> stringArrayList = StringUtil.divideStringDecryption(StringUtil.bitString(msg),
                 Config.blockSize);
         String handledMsg = "";
         for(String s: stringArrayList){
             String st = s;
-            String k;
+            String k = "";
             k = KeyMixing.getKey(key,Config.rounds);
             st = Round.lastRoundBack(st, k);
             for( int i = Config.rounds - 1; i > 0; i--){
@@ -53,6 +51,6 @@ public class Handler {
             st = StringUtil.xor(st, k);
             handledMsg += st;
         }
-        return handledMsg;
+        return StringUtil.asciiString(handledMsg);
     }
 }

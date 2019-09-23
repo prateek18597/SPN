@@ -30,10 +30,10 @@ public class Round {
 
     public static String generalRoundBack(String s, String key){
         String xorString = StringUtil.xor(s, key);
-        String perString = Permutation.permute(xorString);
+        String perString = Permutation.permuteB(xorString);
         String subString = "";
         for(int i = 0; i < perString.length(); i+=4){
-            subString += Substitution.substitute(perString.substring(i,i+4));
+            subString += Substitution.substituteB(perString.substring(i,i+4));
         }
         return subString;
     }
@@ -42,7 +42,7 @@ public class Round {
         String xorString = StringUtil.xor(s, key);
         String subString = "";
         for(int i = 0; i < xorString.length(); i+=4){
-            subString += Substitution.substitute(xorString.substring(i,i+4));
+            subString += Substitution.substituteB(xorString.substring(i,i+4));
         }
         return subString;
     }
