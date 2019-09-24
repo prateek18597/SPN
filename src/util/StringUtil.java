@@ -47,7 +47,6 @@ public class StringUtil {
         for(int i = 0; i < l; i+=64){
             strArray.add(s.substring(i,i+64));
         }
-        if(l%size!=0)
         strArray.add(c);
         return strArray;
     }
@@ -59,6 +58,12 @@ public class StringUtil {
             strArray.add(s.substring(i,i+64));
         }
         return strArray;
+    }
+
+    public static String removePadding(String s){
+        String st = s.substring(0,s.length()-64);
+        int pad = Integer.parseInt(s.substring(s.length()-64),2);
+        return st.substring(0,st.length() - pad);
     }
 
     public static String asciiString(String s){

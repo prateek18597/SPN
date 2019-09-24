@@ -51,6 +51,7 @@ public class Handler {
             st = StringUtil.xor(st, k);
             handledMsg += st;
         }
+        handledMsg = StringUtil.removePadding(handledMsg);
         return StringUtil.asciiString(handledMsg);
     }
 }
