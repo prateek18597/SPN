@@ -6,6 +6,7 @@ import util.StringUtil;
 
 import java.security.Key;
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class Handler {
     /**
@@ -14,7 +15,6 @@ public class Handler {
      * @return
      */
     public static String handleEncryption(String msg, String key){
-        System.out.println("Message:\n" + StringUtil.bitString(msg));
         ArrayList<String> stringArrayList = StringUtil.divideString(StringUtil.bitString(msg),
                 Config.blockSize);
         String handledMsg = "";
@@ -31,6 +31,9 @@ public class Handler {
             st = StringUtil.xor(st, k);
             handledMsg += st;
         }
+        System.out.println("Encrypted Message:");
+        System.out.println("Hexadecimal: " + StringUtil.toHexadecimal(handledMsg));
+        System.out.println("Ascii: " + StringUtil.asciiString(handledMsg));
         return StringUtil.asciiString(handledMsg);
     }
 

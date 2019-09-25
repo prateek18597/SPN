@@ -74,4 +74,12 @@ public class StringUtil {
         }
         return str;
     }
+
+    public static String toHexadecimal(String s){
+        String str = "";
+        for(int i = 0; i < s.length(); i+=8){
+            str += Long.toHexString(Long.parseLong(s.substring(i,i+4),2));
+        }
+        return str;
+    }
 }
